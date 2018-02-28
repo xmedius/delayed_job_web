@@ -9,6 +9,8 @@ class DelayedJobWeb < Sinatra::Base
   set :public_folder, File.expand_path('../public', __FILE__)
   set :views, File.expand_path('../views', __FILE__)
 
+  use Rack::Protection::EscapedParams
+
   set :allow_requeue_pending, true
 
   # Enable sessions so we can use CSRF protection
